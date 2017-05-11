@@ -12,7 +12,7 @@ const visitAllNodes = function(node, callback) {
 const flattenTreeToArray = function(node) {
   // Hint: Use visitAllNodes()
   let result = [];
-  visitAllNodes(node, element => result.push(element));
+  visitAllNodes(node, childNode => result.push(childNode));
   return result;
 };
 
