@@ -1,5 +1,6 @@
 const _ = require('underscore'); // the real one! :)
 
+
 // This is what you would do if you liked things to be easy:
 // const stringify = JSON.stringify;
 // But you don't. So you're going to write it from scratch...
@@ -7,15 +8,23 @@ const _ = require('underscore'); // the real one! :)
 
 
 const stringify = function(obj) {
-  // your code goes here
+  if (typeof obj === 'number') return `${obj}`;
 
-  // array
+  else if (obj === null) return 'null';
 
+  else if (typeof obj === 'boolean') return `${obj}`;
 
-  // obj
+  else if (typeof obj === 'string') return `"${obj}"`;
 
+  else if (Array.isArray(obj)){
+    return `[${_.map(obj, item => stringify(item))}]`
+  }
 
-  // null, bool, num, string.
+  else {
+    let string = _.map(obj, (item, key) => `\"${key}\":${stringify(item)}`)
+    return `{${string}}`
+  }
+
 };
 
 module.exports = {

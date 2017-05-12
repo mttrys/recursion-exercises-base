@@ -17,7 +17,7 @@ describe('stringify()', () => {
   it('can stringify false', () => {
     expect(stringify(false)).toEqual('false');
   });
-
+        // working on below
   it('can stringify a simple string', () => {
     expect(stringify('Hello world')).toEqual('"Hello world"');
   });
@@ -39,6 +39,7 @@ describe('stringify()', () => {
       '[1,0,-1,-0.3,0.3,1343.32,3345,0.00011999999999999999]');
   });
 
+  // recursion!!!
   it('can stringify a nested array', () => {
     expect(stringify([8, [[], 3, 4]])).toEqual('[8,[[],3,4]]');
   });
