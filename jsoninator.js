@@ -16,7 +16,7 @@ const stringify = function(obj) {
 
   else if (typeof obj === 'string') return `"${obj}"`;
 
-  else if (Array.isArray(obj)){
+  else if (_.isArray(obj)){
     return `[${_.map(obj, item => stringify(item))}]`
   }
 
