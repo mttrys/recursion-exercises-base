@@ -8,6 +8,14 @@ const _ = require('underscore'); // the real one! :)
 
 const stringify = function(obj) {
   // your code goes here
+
+  // array
+
+
+  // obj
+
+
+  // null, bool, num, string.
 };
 
 module.exports = {

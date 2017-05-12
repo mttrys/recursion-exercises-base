@@ -1,39 +1,24 @@
 const { flattenTreeToArray } = require('./dom-util');
 const _ = require('underscore');
 
-const getElementById = function(root, id) {
-  let nodes = flattenTreeToArray(root);
-  let result;
 
-  nodes.forEach(node => {
-    if (node.id === id){
-      result = node;
-    }
-  });
-  return result;
+const getElementById = function(root, id) {
+  let nodesArray = flattenTreeToArray(root);
+  return _.filter(nodesArray, node => node.id === id)[0]
 };
 
 const getElementsByClassName = function(root, className) {
-  let nodes = flattenTreeToArray(root);
-  let results = [];
-
-  // nodes.forEach(el -> {
-
-
-  // })
+  let nodesArray = flattenTreeToArray(root);
+  return _.filter(nodesArray, node => {
+    return node.className && (node.className.indexOf(className) !== -1);
+  });
 };
 
 const getElementsByTagName = function(root, tagName) {
-  let nodes = flattenTreeToArray(root);
-  let results = [];
-
-  nodes.forEach(node => {
-    if (node.tagName === tagName){
-      results.push(node)
-    }
-  });
-  return results;
+  let nodesArray = flattenTreeToArray(root);
+  return _.filter(nodesArray, node => node.tagName === tagName);
 };
+
 
 module.exports = {
   getElementById: getElementById,
